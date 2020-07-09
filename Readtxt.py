@@ -1,12 +1,26 @@
 #!/usr/bin/python3
 
 import time;
+import mysql.connector;
+
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="9928860xx"
+)
+
+print(mydb)
+
+
+
+
 nyear = str(time.localtime()[0])[2:]
 nmonth = ("0"+ str(time.localtime()[1]))[-2:]
 ndate = ("0"+ str(time.localtime()[2]))[-2:]
 
 
-ControllerID = "c101"
+ControllerID = "c103"
 
 
 for i in range(1,15):
@@ -37,7 +51,7 @@ for i in range(1,15):
          for x in range(42):
 
                 print(txtheader.split(",")[x] + " : " + txtline.split(",")[x] )
-
+                #parse data to DB
 
    except:
       #print("Something went wrong")
